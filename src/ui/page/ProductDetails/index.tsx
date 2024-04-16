@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import * as ProductApi from "../../../api/ProductApi.ts"
-import {GetProductbyId} from "../../../data/getProductbyIdData.Type.ts";
+import {GetProductbyId} from "../../../data/product/getProductbyIdData.Type.ts";
 
 
 export default function ProductDetails () {

@@ -1,6 +1,6 @@
 import axios from "axios";
-import {GetAllProduct} from "../data/getAllProductData.Type.ts";
-import {GetProductbyId} from "../data/getProductbyIdData.Type.ts";
+import {GetAllProduct} from "../data/product/getAllProductData.Type.ts";
+import {GetProductbyId} from "../data/product/getProductbyIdData.Type.ts";
 
 
 export const getAllProduct = async (): Promise<GetAllProduct[]> => {

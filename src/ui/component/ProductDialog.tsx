@@ -3,7 +3,7 @@ import DialogContent from '@mui/material/DialogContent';
 import Typography from '@mui/material/Typography';
 import {DialogTitle} from "@mui/material";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import {GetAllProduct} from "../../data/getAllProductData.Type.ts";
+import {GetAllProduct} from "../../data/product/getAllProductData.Type.ts";
 
 type Props = {
     open: boolean,

@@ -1,41 +1,61 @@
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { GetAllProduct } from "../../data/getAllProductData.Type.ts";
-import {ProductDialog} from "./ProductDialog.tsx";
-import {useState} from "react";
+import {GetAllProduct} from "../../data/product/getAllProductData.Type.ts";
+import Box from "@mui/material/Box";
 
 type Props = {
     getAllProductDataList: GetAllProduct[] | undefined;
+
 }
 
-export const ProductCard = ({getAllProductDataList}:Props) => {
-    const [selectedPid, setSelectedPid] = useState<string | null>(null);
+export const ProductCard = ({getAllProductDataList}: Props) => {
 
-    const handleOpenDialog = (pid: string) => {
-        setSelectedPid(pid);
-    };
-
-    const handleCloseDialog = () => {
-        setSelectedPid(null);
-    };
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-            {getAllProductDataList && getAllProductDataList.map((product, index) => (
-                <Card className="ProductCard" key={index} sx={{ maxWidth: 500, backgroundColor: 'transparent' }} onClick={() => handleOpenDialog(product.pid.toString())}>
-                    <CardMedia
-                        sx={{ height: 310}}
-                        image={product.imageUrl ? product.imageUrl : ''}
-                    />
-                    <CardContent>
+        <div>
+            {getAllProductDataList && getAllProductDataList.slice(0, 1).map((product, index) => (
+                <Card
+                    className="ProductCard"
+                    key={index}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'flex',
+                        boxShadow: 'none',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}
+
+                >
+                    <Box sx={{flex: 1}}>
+                        <img
+                            src={product.imageUrl ? product.imageUrl : ''}
+                            style={{width: '100%', height: '100%', objectFit: 'cover'}}
+                        />
+                    </Box>
+
+                    <Box sx={{
+                        flex: 1,
+                        padding: '0 30px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'left'
+                    }}>
                         <Typography gutterBottom variant="h5" component="div">
                             {product.productName}
                         </Typography>
-                    </CardContent>
-                    <ProductDialog open={selectedPid !== null} product={product} handleClose={handleCloseDialog} />
+                        <Typography gutterBottom variant="h5" component="div" sx={{whiteSpace: "pre-line"}}>
+                            {product.description}
+                        </Typography>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {product.productPrice}
+                        </Typography>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {product.stock}
+                        </Typography>
+                    </Box>
                 </Card>
-
             ))}
         </div>
     );

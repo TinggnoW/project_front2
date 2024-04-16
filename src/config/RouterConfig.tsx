@@ -1,10 +1,10 @@
 import {createBrowserRouter} from "react-router-dom";
-import ProductListing from "../ui/page/ProductListing";
+import Product from "../ui/page/ProductListingPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <ProductListing/>
+        element: <Product/>
     },
     // {
     //     path: "/product/:pid/",

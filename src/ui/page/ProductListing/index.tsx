@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {GetAllProduct} from "../../../data/getAllProductData.Type.ts";
+import {GetAllProduct} from "../../../data/product/getAllProductData.Type.ts";
 import * as ProductApi from "../../../api/ProductApi.ts"
 import LoadingContainer from "../../component/LoadingPage.tsx";
 import {ProductCard} from "../../component/ProductCard.tsx";
